@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="First_Start">Please configure the application on the first start.</system:String>
-    <system:String x:Key="Main_Title">Focus Tree And Event Manager</system:String>
+    <system:String x:Key="Main_Title">Focus Tree And Event Manager ( fork ) - pongmadee</system:String>
     <system:String x:Key="Chose_Image_Title">Choose the image</system:String>
     <system:String x:Key="Localize_Title">Create localisation</system:String>
     <system:String x:Key="Game_Path_Title">Select the game installation folder</system:String>
@@ -106,8 +106,8 @@
     <system:String x:Key="Scripter_Assignation_Text">Description text</system:String>
     <system:String x:Key="Scripter_Conditions">Conditions</system:String>
     <system:String x:Key="Scripter_Condition_If">If block</system:String>
-    <system:String x:Key="Scripter_Condition_AND">Or block</system:String>
-    <system:String x:Key="Scripter_Condition_OR">And block</system:String>
+    <system:String x:Key="Scripter_Condition_AND">And block</system:String>
+    <system:String x:Key="Scripter_Condition_OR">Or block</system:String>
     <system:String x:Key="Scripter_Condition_NOT">Not block</system:String>
     <system:String x:Key="Scripter_Condition_Limit">Limit block</system:String>
     <system:String x:Key="Scripter_Condition_From">FROM block</system:String>
@@ -151,6 +151,7 @@
     <system:String x:Key="Comparator_New_File">New file</system:String>
     <system:String x:Key="Command_Accept">Accept</system:String>
     <system:String x:Key="Command_Change">Change</system:String>
+    <system:String x:Key="Command_Reload">Reload</system:String>
     <system:String x:Key="Command_Edit">Edit</system:String>
     <system:String x:Key="Command_Select">Select</system:String>
     <system:String x:Key="Command_Save">Save</system:String>

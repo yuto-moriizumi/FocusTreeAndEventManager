@@ -13,6 +13,7 @@ using System.Linq;
 using System.Windows.Media;
 using FocusTreeManager.Helper;
 using FocusTreeManager.Model.TabModels;
+using System;
 
 namespace FocusTreeManager.Model
 {
@@ -101,6 +102,8 @@ namespace FocusTreeManager.Model
                          "Picture", picture, value, "Picture Changed");
                 picture = value;
                 RaisePropertyChanged(() => Picture);
+                //fork add 'RaisePropertyChanged(() => ImagePath);' //fixed selected image not display
+                RaisePropertyChanged(() => ImagePath);
             }
         }
 
@@ -240,6 +243,9 @@ namespace FocusTreeManager.Model
 
         public RelayCommand<object> EditDescScriptCommand { get; private set; }
 
+        //fork add ReloadDescScriptCommand
+        public RelayCommand<object> ReloadDescScriptCommand { get; private set; }
+
         public RelayCommand ChangeImageCommand { get; private set; }
 
         public RelayCommand<string> EditLocaleCommand { get; private set; }
@@ -255,12 +261,31 @@ namespace FocusTreeManager.Model
             DeleteEventCommand = new RelayCommand(DeleteElement);
             EditOptionScriptCommand = new RelayCommand<object>(EditOptionScript);
             EditDescScriptCommand = new RelayCommand<object>(EditDescriptionScript);
+            //fork add ReloadDescScriptCommand
+            ReloadDescScriptCommand = new RelayCommand<object>(ReloadDescriptionScript);
             ChangeImageCommand = new RelayCommand(ChangeImage);
             EditLocaleCommand = new RelayCommand<string>(EditLocale, CanEditLocale);
+            
+        }
+
+        private EventModel item;
+
+        public EventModel Item
+        {
+            get { return item; }
+
+            set {
+                if (value == item)
+                {
+                    return;
+                }
+                item = value;
+            }
         }
 
         public EventModel(Event item)
         {
+            
             id = item.Id;
             type = item.Type;
             picture = item.Picture;
@@ -300,12 +325,15 @@ namespace FocusTreeManager.Model
             DeleteEventCommand = new RelayCommand(DeleteElement);
             EditOptionScriptCommand = new RelayCommand<object>(EditOptionScript);
             EditDescScriptCommand = new RelayCommand<object>(EditDescriptionScript);
+            //fork add ReloadDescScriptCommand
+            ReloadDescScriptCommand = new RelayCommand<object>(ReloadDescriptionScript);
             ChangeImageCommand = new RelayCommand(ChangeImage);
             EditLocaleCommand = new RelayCommand<string>(EditLocale, CanEditLocale);
         }
 
         public EventModel(EventModel item)
         {
+            //Item = item;
             id = item.Id;
             type = item.Type;
             picture = item.Picture;
@@ -339,6 +367,8 @@ namespace FocusTreeManager.Model
             DeleteEventCommand = new RelayCommand(DeleteElement);
             EditOptionScriptCommand = new RelayCommand<object>(EditOptionScript);
             EditDescScriptCommand = new RelayCommand<object>(EditDescriptionScript);
+            //fork add ReloadDescScriptCommand
+            ReloadDescScriptCommand = new RelayCommand<object>(ReloadDescriptionScript);
             ChangeImageCommand = new RelayCommand(ChangeImage);
         }
 
@@ -362,6 +392,12 @@ namespace FocusTreeManager.Model
         {
             EventDescriptionModel model = description as EventDescriptionModel;
             model?.EditDescScript();
+        }
+
+        private static void ReloadDescriptionScript(object description)
+        {
+            EventDescriptionModel model = description as EventDescriptionModel;
+            model?.ReloadDescScript();
         }
 
         public void DeleteElement()
@@ -428,6 +464,7 @@ namespace FocusTreeManager.Model
                     break;
             }
         }
+
 
         public bool CanEditLocale(string param)
         {

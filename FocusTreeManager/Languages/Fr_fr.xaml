@@ -151,6 +151,7 @@
     <system:String x:Key="Editor_Show_Plan_Desc">Afficher l'aperçu du document.</system:String>
     <system:String x:Key="Command_Accept">Accepter</system:String>
     <system:String x:Key="Command_Change">Changer</system:String>
+    <system:String x:Key="Command_Reload">Recharger</system:String>
     <system:String x:Key="Command_Edit">Modifier</system:String>
     <system:String x:Key="Command_Select">Choisir</system:String>
     <system:String x:Key="Command_Save">Sauvegarder</system:String>

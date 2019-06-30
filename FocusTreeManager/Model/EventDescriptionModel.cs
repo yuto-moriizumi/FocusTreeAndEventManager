@@ -4,6 +4,7 @@ using FocusTreeManager.Views;
 using GalaSoft.MvvmLight;
 using System;
 using FocusTreeManager.Model.TabModels;
+using MonitoredUndo;
 
 namespace FocusTreeManager.Model
 {
@@ -27,6 +28,7 @@ namespace FocusTreeManager.Model
                 string translation = locales?.translateKey(Id);
                 return translation ?? Id;
             }
+
         }
 
         private Script internalScript;
@@ -57,6 +59,31 @@ namespace FocusTreeManager.Model
             EditScript dialog = new EditScript();
             dialog.ShowDialog();
             internalScript = ViewModel.ManagedScript;
+
+            //frok add updated loc text to data grid when modified description script
+            RaisePropertyChanged(() => InternalScript);
+            RaisePropertyChanged(() => Text);
+
+        }
+
+        //fork add ReloadDescScript method
+        public void ReloadDescScript()
+        {
+            ScripterViewModel ViewModel = new ViewModelLocator().Scripter;
+            ViewModel.ScriptType = ScripterType.EventDescription;
+            ViewModel.ManagedScript = internalScript;
+            EditScript dialog = new EditScript();
+            //dialog.ShowDialog();
+            internalScript = ViewModel.ManagedScript;
+
+            //test clear
+            //Properties.Settings.Default.Reset();
+            //Properties.Settings.Default.Save();
+
+            //frok add updated loc text to data grid when clicked button
+            RaisePropertyChanged(() => InternalScript);
+            RaisePropertyChanged(() => Text);
+
         }
 
         public void setDefaults()
@@ -64,5 +91,6 @@ namespace FocusTreeManager.Model
             internalScript = new Script();
             internalScript.Analyse("text = namespace.count.d.desc_id\ntrigger = { }");
         }
+
     }
 }

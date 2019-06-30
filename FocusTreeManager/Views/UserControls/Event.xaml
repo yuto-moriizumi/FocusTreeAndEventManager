@@ -65,7 +65,7 @@
                        Foreground="{DynamicResource IdealForegroundColorBrush}"
                        VerticalAlignment="Center" HorizontalAlignment="Stretch"
                        ToolTip="{DynamicResource Event_Title_Tooltip}"
-                       FontSize="15" Grid.Row="1" Grid.Column="0"/>
+                       FontSize="18" Grid.Row="1" Grid.Column="0"/>
             <Controls:ToggleSwitch Header="{DynamicResource Event_Type_Switch}" 
                                    ToolTip="{DynamicResource Event_Type_Switch_Tooltip}"
                                    OffLabel="{DynamicResource Event_Type_Switch_1}" 
@@ -87,7 +87,7 @@
                        ToolTip="{DynamicResource Event_Description_Tooltip}"/>
                 <ScrollViewer DockPanel.Dock="Bottom" >
                     <TextBlock Text="{Binding Description}" Padding="5" 
-                               HorizontalAlignment="Stretch" TextWrapping="Wrap" Margin="35,0,0,0"/>
+                               HorizontalAlignment="Stretch" TextWrapping="Wrap" Margin="35,0,0,0" FontSize="16"/>
                 </ScrollViewer>
             </DockPanel>
         </Grid>
@@ -134,7 +134,8 @@
                     FontSize="16" FontWeight="Bold"
                     ToolTip="{DynamicResource Event_Description_Options_Tooltip}"/>
         </DockPanel>
-        <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="4">
+        
+        <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" x:Name="Descriptions"/>
                 <RowDefinition Height="72" x:Name="OptionsLabel"/>
@@ -142,8 +143,8 @@
                 <RowDefinition Height="35" x:Name="ChangeScript"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*"/>
-                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="30*"/>
             </Grid.ColumnDefinitions>
             <DockPanel x:Name="DescriptionList" Background="{Binding Path=Background, 
                             RelativeSource={RelativeSource Mode=FindAncestor,
@@ -165,7 +166,7 @@
                                 </DataTemplate>
                             </DataGridTextColumn.HeaderTemplate>
                         </DataGridTextColumn>
-                        <DataGridTemplateColumn Width="150" CanUserResize="False">
+                        <DataGridTemplateColumn Width="60" CanUserResize="False">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Command="{Binding DataContext.EditDescScriptCommand, 
@@ -173,6 +174,25 @@
                                                 AncestorType={x:Type DataGrid}}}" 
                                             CommandParameter="{Binding}" 
                                             Content="{DynamicResource Command_Change}"
+                                            Style="{DynamicResource SquareButtonStyle}"
+                                            Loaded="FrameworkElement_OnLoaded"
+                                            IsEnabled="False"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{DynamicResource Event_Description_Script}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="60" CanUserResize="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding DataContext.ReloadDescScriptCommand, 
+                                                RelativeSource={RelativeSource FindAncestor, 
+                                                AncestorType={x:Type DataGrid}}}" 
+                                            CommandParameter="{Binding}" 
+                                            Content="{DynamicResource Command_Reload}"
                                             Style="{DynamicResource SquareButtonStyle}"
                                             Loaded="FrameworkElement_OnLoaded"
                                             IsEnabled="False"/>

@@ -26,7 +26,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="10">
-                        <Image x:Name="ImageToChose"
+                        <Image Height="180" x:Name="ImageToChose"
                                Source="{Binding Image}" MaxWidth="{Binding MaxWidth}" 
                                ToolTip="{Binding Filename}"/>
                         <!--:Loader.DisplayOption="FullResolution"

@@ -97,7 +97,7 @@
         <Grid Margin="-28,72,-28,-18">
             <Label x:Name="label" HorizontalAlignment="Left" Height="26"  
                    VerticalAlignment="Top" Width="145" FontFamily="Calibri"
-                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14">
                 <TextBlock Text="{Binding VisibleName}" TextWrapping="WrapWithOverflow"/>
             </Label>
             <TextBox Width="110" x:Name="TextBoxName"

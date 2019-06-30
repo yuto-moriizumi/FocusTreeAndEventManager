@@ -33,6 +33,7 @@
     <system:String x:Key="Localisation_Reminder">Если вы добавляете новый язык не забудьте добавить его в language.yaml</system:String>
     <system:String x:Key="Command_Accept">Выбрать</system:String>
     <system:String x:Key="Command_Change">Изменить</system:String>
+    <system:String x:Key="Command_Reload">перезагружать</system:String>
     <system:String x:Key="Command_Select">Выбрать</system:String>
     <system:String x:Key="Command_Save">Сохранить</system:String>
     <system:String x:Key="Command_Cancel">Отмена</system:String>

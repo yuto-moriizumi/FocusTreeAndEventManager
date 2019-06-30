@@ -53,6 +53,10 @@ namespace FocusTreeManager.ViewModel
             }
         }
 
+        //fork add default directory
+        private String prevDirPath = "C:";
+
+
         public ObservableCollection<ObservableObject> TabsModelList { get; private set; }
 
         private ObservableObject selectedTab;
@@ -89,6 +93,7 @@ namespace FocusTreeManager.ViewModel
 
         public MainViewModel()
         {
+
             coordinator = DialogCoordinator.Instance;
             TabsModelList = new ObservableCollection<ObservableObject>();
             //Commands
@@ -219,10 +224,12 @@ namespace FocusTreeManager.ViewModel
             {
                 var dialog = new CommonOpenFileDialog();
                 dialog.Title = LocalizationHelper.getValueForKey("Project_Load");
-                dialog.InitialDirectory = "C:";
+                //dialog.InitialDirectory = "C:";
+                //fork
+                dialog.InitialDirectory = prevDirPath;
                 dialog.AddToMostRecentlyUsedList = false;
                 dialog.AllowNonFileSystemItems = false;
-                dialog.DefaultDirectory = "C:";
+                //dialog.DefaultDirectory = "C:";
                 dialog.EnsureFileExists = true;
                 dialog.EnsurePathExists = true;
                 dialog.EnsureReadOnly = false;
@@ -232,7 +239,13 @@ namespace FocusTreeManager.ViewModel
                 if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 {
                     Mouse.OverrideCursor = Cursors.Wait;
-                    LoadProject(dialog.FileName);
+
+                    //fork
+                    string fullPath = dialog.FileName;
+                    prevDirPath = System.IO.Path.GetDirectoryName(fullPath);
+                    LoadProject(fullPath);
+
+                    //LoadProject(dialog.FileName);
                     Mouse.OverrideCursor = null;
                 }
             }
@@ -445,10 +458,12 @@ namespace FocusTreeManager.ViewModel
             var dialog = new CommonOpenFileDialog();
             dialog.Title = LocalizationHelper.getValueForKey("Project_Export");
             dialog.IsFolderPicker = true;
-            dialog.InitialDirectory = "C:";
+            //dialog.InitialDirectory = "C:";
+            //fork
+            dialog.InitialDirectory = prevDirPath;
             dialog.AddToMostRecentlyUsedList = false;
             dialog.AllowNonFileSystemItems = false;
-            dialog.DefaultDirectory = "C:";
+            //dialog.DefaultDirectory = "C:";
             dialog.EnsureFileExists = true;
             dialog.EnsurePathExists = true;
             dialog.EnsureReadOnly = false;

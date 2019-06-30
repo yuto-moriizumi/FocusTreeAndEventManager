@@ -90,7 +90,9 @@ namespace FocusTreeManager.Parsers
                     text.AppendLine("\t\ttext = " + focus.Text);
                 }
                 text.AppendLine("\t\ticon = GFX_" + focus.Image);
-                text.AppendLine("\t\tcost = " + $"{focus.Cost:0.00}");
+                //text.AppendLine("\t\tcost = " + $"{focus.Cost:0.00}");
+                //frok
+                text.AppendLine("\t\tcost = " + $"{focus.Cost}");
                 if (focus.Prerequisite.Any())
                 {
                     foreach (PrerequisitesSet prereqisite in focus.Prerequisite)
@@ -260,7 +262,9 @@ namespace FocusTreeManager.Parsers
                         Image = script.TryParse(block, "icon").Replace("GFX_", ""),
                         X = int.Parse(script.TryParse(block, "x")),
                         Y = int.Parse(script.TryParse(block, "y")),
-                        Cost = GetDouble(script.TryParse(block, "cost"), 10)
+                        //Cost = GetDouble(script.TryParse(block, "cost"), 10)
+                        //frok
+                        Cost = int.Parse(script.TryParse(block, "cost"))
                     };
                     //Get all core scripting elements
                     Script InternalFocusScript = block.

@@ -62,7 +62,8 @@ namespace FocusTreeManager.ViewModel
                     MaxWidth = 100;
                     images = AsyncImageLoader.AsyncImageLoader.Worker.Focuses;
                     break;
-                case "Event":
+                    //fork case "Event":
+                    case "Events":
                     MaxWidth = 250;
                     images = AsyncImageLoader.AsyncImageLoader.Worker.Events;
                     break;

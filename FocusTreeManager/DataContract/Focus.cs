@@ -24,7 +24,7 @@ namespace FocusTreeManager.DataContract
         public int Y { get; set; }
 
         [DataMember(Name = "cost", Order = 4)]
-        public double Cost { get; set; }
+        public int Cost { get; set; }
 
         [DataMember(Name = "script", Order = 5)]
         public Script InternalScript { get; set; }

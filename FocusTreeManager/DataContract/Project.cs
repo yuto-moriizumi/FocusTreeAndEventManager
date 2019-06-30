@@ -69,12 +69,18 @@ namespace FocusTreeManager.DataContract
             }
             path = paramFilename + LOCALISATION_PATH;
             Directory.CreateDirectory(Path.GetDirectoryName(path));
+            LocalisationContainer loct = null;
+           
             //For each parsed localisation files
             foreach (KeyValuePair<string, string> item in
                 LocalisationParser.ParseEverything(localisationList))
             {
-                using (Stream stream = File.OpenWrite(path + item.Key + ".yml"))
-                using (TextWriter tw = new StreamWriter(stream, new UTF8Encoding()))
+                //localisationList.IndexOf(loct, 0);
+                //fork
+                //fixed localization files save in UTF-8 with BOM format
+                loct = localisationList[0];
+                using (Stream stream = File.OpenWrite(path + item.Key + "_" + loct.LanguageName + ".yml")) //save in file name eg.'test_l_english.yml'
+                using (TextWriter tw = new StreamWriter(stream, new UTF8Encoding(true)))
                 {
                     tw.Write(item.Value);
                 }
@@ -85,7 +91,9 @@ namespace FocusTreeManager.DataContract
             foreach (KeyValuePair<string, string> item in
                 EventParser.ParseAllEvents(eventList))
             {
-                using (TextWriter tw = new StreamWriter(path + item.Key + ".txt"))
+                //using (TextWriter tw = new StreamWriter(path + item.Key + ".txt"))
+                //fork need to be UTF-8 with BOM
+                using (TextWriter tw = new StreamWriter(path + item.Key + ".txt" ,false , new UTF8Encoding(true)))
                 {
                     tw.Write(item.Value);
                 }

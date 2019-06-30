@@ -46,7 +46,7 @@ namespace FocusTreeManager.Helper
 
         private const string GFX_GOAL_FOLDER = @"\gfx\interface\goals\";
 
-        private const string GFX_EVENT_FOLDER = @"\gfx\event_pictures";
+        private const string GFX_EVENT_FOLDER = @"\gfx\event_pictures\";
 
         private const string GFX_EXTENTION = ".dds";
 

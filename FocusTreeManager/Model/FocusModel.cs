@@ -244,9 +244,9 @@ namespace FocusTreeManager.Model
             }
         }
 
-        private double cost;
+        private int cost;
 
-        public double Cost
+        public int Cost
         {
             get
             {

@@ -45,7 +45,7 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
-            <RowDefinition Height="90"/>
+            <RowDefinition Height="120"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="120"/>
             <RowDefinition Height="35"/>
@@ -105,9 +105,12 @@
                ToolTip="{DynamicResource Focus_Image_Tooltip}"/>
         <Image Grid.Column="1" Grid.Row="7" 
                Source="{Binding Icon}"
+               Height="90"
+               Margin="0"
+               VerticalAlignment="Top"
                x:Name="EditFocusImage"/>
         <Button Content="{DynamicResource Command_Change}" Command="{Binding ChangeImageCommand}" 
-                Grid.Row="7" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,5" 
+                Grid.Row="7" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,0"
                 Style="{DynamicResource SquareButtonStyle}" MinWidth="150"
                 DataContext="{Binding RelativeSource={RelativeSource FindAncestor, 
                     AncestorType={x:Type UserControl}}, Path=DataContext}"/>
