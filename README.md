@@ -1,8 +1,8 @@
 # FocusTreeAndEventManager
 Focus tree and Event manager for Heart of Iron IV
 
-
-## Beta_3c_fix
+## Beta_3c_fix1
+#### [Download the lastest release](https://github.com/pongmadee/FocusTreeAndEventManager/releases)
 
 ## Fixed and change information
 - Fixed localization files save in UTF-8 with BOM format
