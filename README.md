@@ -23,5 +23,5 @@ Focus tree and Event manager for Heart of Iron IV
 
 <img src="images/demo_eng_set_loc_language.jpg" width="30%"> <img src="images/demo_01.PNG" width="30%">  <img src="images/demo_02.PNG" width="30%"> <img src="images/demo_03.PNG" width="30%"> <img src="images/demo_04.PNG" width="30%">
 
-## Other Tools:
+## Other Tools
 - [HOI4-QuickInsertGFX](https://github.com/pongmadee/HOI4-QuickInsertGFX) : This tool was created to work with FocusTreeAndEventManager , help to add mod's images file information (event pictures & goal/focus images) to the mod's interface directory(eventpictures.gfx , goals.gfx).
