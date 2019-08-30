@@ -1,3 +1,5 @@
+<p align="center"><img src="images/app.png"></>
+
 # FocusTreeAndEventManager
 Focus tree and Event manager for Heart of Iron IV
 
@@ -21,7 +23,7 @@ Focus tree and Event manager for Heart of Iron IV
 ### Important :
 > When you create a new localization file please set language define to export file name pattern = {name}_{language_set}.yml eg. 'test_l_english.yml'.
 
-<img src="images/demo_eng_set_loc_language.jpg" width="30%"> <img src="images/demo_01.PNG" width="30%">  <img src="images/demo_02.PNG" width="30%"> <img src="images/demo_03.PNG" width="30%"> <img src="images/demo_04.PNG" width="30%">
+<img src="images/demo_eng_set_loc_language.jpg" width="30%"> <img src="images/demo_01.PNG" width="30%">  <img src="images/demo_02.PNG" width="30%"> <img src="images/demo_03.PNG" width="30%"> <img src="images/demo_04.PNG" width="30%"> <img src="images/demo_05.PNG" width="30%">
 
 ## Other Tools
 - [HOI4-QuickInsertGFX](https://github.com/pongmadee/HOI4-QuickInsertGFX) : This tool was created to work with FocusTreeAndEventManager, help to insert events pictures & goals/focus images file data into the GFX files(eventpictures.gfx , goals.gfx) in the mod's interface directory.

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="First_Start">Please configure the application on the first start.</system:String>
-    <system:String x:Key="Main_Title">Focus Tree And Event Manager ( fork ) - pongmadee</system:String>
+    <system:String x:Key="Main_Title">Focus Tree And Event Manager ( fork project - pongmadee )</system:String>
     <system:String x:Key="Chose_Image_Title">Choose the image</system:String>
     <system:String x:Key="Localize_Title">Create localisation</system:String>
     <system:String x:Key="Game_Path_Title">Select the game installation folder</system:String>
