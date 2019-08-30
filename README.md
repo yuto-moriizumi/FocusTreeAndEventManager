@@ -1,6 +1,6 @@
 <p align="center"><img src="images/app.png"></>
 
-# FocusTreeAndEventManager (fork project)
+# FocusTreeAndEventManager
 Focus tree and Event manager for Heart of Iron IV
 
 ## Beta_3c_fix1
