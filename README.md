@@ -1,10 +1,9 @@
 <p align="center"><img src="images/app.png"></>
 
 # FocusTreeAndEventManager
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/pongmadee/FocusTreeAndEventManager) ![GitHub top language](https://img.shields.io/github/languages/top/pongmadee/FocusTreeAndEventManager)
-
 Focus tree and Event manager for Heart of Iron IV
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/pongmadee/FocusTreeAndEventManager) ![GitHub top language](https://img.shields.io/github/languages/top/pongmadee/FocusTreeAndEventManager)
 #### [Download the lastest release](https://github.com/pongmadee/FocusTreeAndEventManager/releases)
 
 ## Fixed and change information
