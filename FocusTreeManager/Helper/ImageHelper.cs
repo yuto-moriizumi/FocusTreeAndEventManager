@@ -52,12 +52,12 @@ namespace FocusTreeManager.Helper
 
         private const string GFX_ERROR_IMAGE = @"\GFX\Focus\goal_unknown.png";
 
-        private static readonly string[] IMAGE_DO_NOT_LOAD = { "shine_mask", "shine_overlay"};
+        private static readonly string[] IMAGE_DO_NOT_LOAD = { "shine_mask", "shine_overlay" };
 
         public static ImageSource getImageFromGame(string imageName, ImageType source)
         {
             //If we couldn't find the error image, throw an IO exception
-            ImageSource errorSource = new BitmapImage(new Uri(Directory.GetCurrentDirectory() 
+            ImageSource errorSource = new BitmapImage(new Uri(Directory.GetCurrentDirectory()
                 + GFX_ERROR_IMAGE));
             //Try to obtain the image
             try
@@ -66,11 +66,11 @@ namespace FocusTreeManager.Helper
                 switch (source)
                 {
                     case ImageType.Goal:
-                        value =  AsyncImageLoader.AsyncImageLoader.Worker.
+                        value = AsyncImageLoader.AsyncImageLoader.Worker.
                             Focuses.LastOrDefault(f => f.Key == imageName).Value;
                         break;
                     case ImageType.Event:
-                        value =  AsyncImageLoader.AsyncImageLoader.Worker.
+                        value = AsyncImageLoader.AsyncImageLoader.Worker.
                             Events.LastOrDefault(f => f.Key == imageName).Value;
                         break;
                     default:
@@ -104,7 +104,7 @@ namespace FocusTreeManager.Helper
             string fullpath = Configurator.getGamePath() + rightFolder;
             if (!Directory.Exists(fullpath)) return list;
             //For each file in the normal folder
-            foreach (string filename in Directory.GetFiles(fullpath, "*" + GFX_EXTENTION, 
+            foreach (string filename in Directory.GetFiles(fullpath, "*" + GFX_EXTENTION,
                                                            SearchOption.TopDirectoryOnly))
             {
                 if (IMAGE_DO_NOT_LOAD.Any(filename.Contains))
@@ -190,13 +190,18 @@ namespace FocusTreeManager.Helper
 
         private static ImageSource ImageSourceForBitmap(Bitmap bmp)
         {
+            if (bmp == null) throw new Exception("bmp is null");
             IntPtr handle = bmp.GetHbitmap();
             try
             {
-                return System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(handle, 
-                    IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                return System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(handle,
+                IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
             }
-            finally { DeleteObject(handle); }
+            finally
+            {
+                DeleteObject(handle);
+            }
+
         }
     }
 }
